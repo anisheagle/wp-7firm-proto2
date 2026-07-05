@@ -1,0 +1,6 @@
+{
+  "name": "WP7Firm",
+  "description": "A Windows Phone 7 firmware preservation database for Nokia Lumia devices.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

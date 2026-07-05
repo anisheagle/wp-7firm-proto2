@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/((?!assets/|devices.json|favicon.ico).*)",
+      "destination": "/index.html"
+    }
+  ]
+}
