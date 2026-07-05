@@ -1,0 +1,144 @@
+@import "tailwindcss";
+
+:root {
+  --bg-primary: #000000;
+  --bg-secondary: #121212;
+  --bg-card: #1c1c1c;
+  --bg-hover: #222222;
+  --bg-active: #2c2c2c;
+  --text-primary: #ffffff;
+  --text-secondary: #aaaaaa;
+  --text-muted: #666666;
+  --border-color: #242424;
+  --accent: #e81123;
+  --accent-dark: #b50f1f;
+  --accent-warm: #e81123;
+  --tile-green: #107c10;
+  --tile-red: #e81123;
+  --bg-sidebar-selected: #160305;
+  --shadow: 0 18px 42px rgba(0, 0, 0, 0.9);
+  --popup-bg: rgba(18, 18, 18, 0.98);
+  --grid-line-color: rgba(232, 17, 35, 0.06);
+}
+
+[data-theme="light"] {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f3f3f3;
+  --bg-card: #eaeaea;
+  --bg-hover: #e0e0e0;
+  --bg-active: #d5d5d5;
+  --text-primary: #000000;
+  --text-secondary: #1f1f1f;
+  --text-muted: #666666;
+  --border-color: #d8d8d8;
+  --accent: #e81123;
+  --accent-dark: #b50f1f;
+  --accent-warm: #e81123;
+  --tile-green: #107c10;
+  --tile-red: #e81123;
+  --bg-sidebar-selected: #fff0f1;
+  --shadow: 0 18px 42px rgba(0, 0, 0, 0.08);
+  --popup-bg: rgba(255, 255, 255, 0.92);
+  --grid-line-color: rgba(232, 17, 35, 0.035);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.25s ease, color 0.25s ease;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Metro-style Grid lines background layer */
+.grid-bg::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--grid-line-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line-color) 1px, transparent 1px);
+  background-size: 48px 48px;
+  z-index: 1;
+}
+
+.center-grid-bg {
+  position: relative;
+}
+
+.center-grid-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--grid-line-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line-color) 1px, transparent 1px);
+  background-size: 48px 48px;
+  z-index: 0;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.4);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #444444;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
+}
+
+/* Welcome screen Metro tiles background decoration */
+.welcome-tiles::before {
+  content: '';
+  position: absolute;
+  width: min(60vw, 640px);
+  aspect-ratio: 1;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, var(--accent) 0 48%, transparent 48% 52%, var(--tile-green) 52%),
+    linear-gradient(var(--accent-warm) 0 48%, transparent 48% 52%, var(--tile-red) 52%);
+  opacity: 0.08;
+  transform: rotate(-8deg);
+  pointer-events: none;
+}
+
+[data-theme="light"] .welcome-tiles::before {
+  opacity: 0.05;
+}
+
+/* Windows Phone Emulator specific authentic device list scrollbar */
+.device-list-container::-webkit-scrollbar {
+  width: 13px !important;
+  height: 13px !important;
+}
+
+.device-list-container::-webkit-scrollbar-track {
+  background: #000000 !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.device-list-container::-webkit-scrollbar-thumb {
+  background: #ffffff !important;
+  border: 3px solid #000000 !important;
+}
+
+[data-theme="light"] .device-list-container::-webkit-scrollbar-track {
+  background: #f0f0f0 !important;
+  border-left: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="light"] .device-list-container::-webkit-scrollbar-thumb {
+  background: #000000 !important;
+  border: 3px solid #f0f0f0 !important;
+}
